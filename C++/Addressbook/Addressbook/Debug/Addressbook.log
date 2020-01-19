@@ -1,2 +1,3 @@
 ﻿  Addressbook.cpp
+d:\my stuff\resume\portfolio\c++\addressbook\addressbook\addressbook.cpp(52): warning C4101: 'ia': unreferenced local variable
   Addressbook.vcxproj -> D:\My stuff\resume\Portfolio\C++\Addressbook\Debug\Addressbook.exe
