@@ -1,0 +1,36 @@
+#include "Tree.h"
+
+// Constructors
+template <class Type>
+Tree<Type>::Tree()
+{
+	root = NULL;
+}
+
+template <class Type>
+Tree<Type>::Tree(const Tree& source)
+{
+	root = NULL;
+	// Here we'll copy the source tree into the actual tree
+}
+
+
+// Destructor
+template <class Type>
+Tree<Type>::~Tree()
+{
+	free(root);
+}
+
+
+//Private functions
+
+template <class Type>
+void Tree<Type>::free(Node<Type>* cursor)
+{
+	if (cursor != NULL) {
+		free(cursor->left);
+		free(cursor->right);
+		delete cursor;
+	}
+}

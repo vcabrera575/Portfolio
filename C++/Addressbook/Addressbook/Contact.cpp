@@ -6,6 +6,7 @@ namespace ContactInfo
 	// Constructors
 	Contact::Contact()
 	{
+		setCategory("Friend");
 		setName("Jane", "Doe");
 		setAddress("555 fake lane", "City", "St", "55555");
 		setEmail("jane.doe@fakedomain.com");
@@ -13,8 +14,9 @@ namespace ContactInfo
 		setImage("picture.jpg");
 	}
 
-	Contact::Contact(string firstName, string lastName, string address, string city, string state, string zip, string email, string birthday, string image)
+	Contact::Contact(string categoryIn, string firstName, string lastName, string address, string city, string state, string zip, string email, string birthday, string image)
 	{
+		setCategory(categoryIn);
 		setName(firstName, lastName);
 		setAddress(address, city, state, zip);
 		setEmail(email);
@@ -23,6 +25,11 @@ namespace ContactInfo
 	}
 
 	// Access
+	string Contact::getCategory()
+	{
+		return category;
+	}
+
 	string Contact::getFullName()
 	{
 		return(firstName + " " + lastName);
@@ -49,6 +56,11 @@ namespace ContactInfo
 	}
 
 	// Set functions
+	void Contact::setCategory(string categoryIn)
+	{
+		category = categoryIn;
+	}
+
 	void Contact::setName(string first, string last)
 	{
 		firstName = first;
@@ -78,8 +90,13 @@ namespace ContactInfo
 	// Other functions
 	string Contact::toString() const
 	{
-		return (firstName + " " + lastName + "\n" + address + "\n" + phoneNum + "\n" +
+		return (category + "\n" + firstName + " " + lastName + "\n" + address + "\n" + phoneNum + "\n" +
 			email + "\n" + birthday + "\n" + picture + "\n");
 	}
 
+	string Contact::toStringFile() const
+	{
+		return (category + "," + firstName + "," + lastName + "," + address + "," + phoneNum + "," +
+			email + "," + birthday + "," + picture + "\n");
+	}
 }
